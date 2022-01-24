@@ -114,6 +114,10 @@ def workflow():
     if(pageTimer > refresh_page_time):
       refresh_page()
 
+    image = getImage_('new_map.jpg')
+    if(image != None):
+      mouseClick_(image)
+
     timer+=1
     pageTimer+=1
 
