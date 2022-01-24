@@ -1,17 +1,16 @@
-from random import random
+############## imports ##############
 import time
 import yaml
-
-from src.utils_ import *
 import pyautogui
 
-pt = pyautogui
+from src.utils_ import *
 
 stream = open("config.yaml", 'r')
-config = yaml.safe_load(stream)
 
 
 ############## mapper config ##############
+pt = pyautogui
+config = yaml.safe_load(stream)
 refresh_map_time  = config['refresh_map_time']
 refresh_page_time = config['refresh_page_time']
 offset = config['set_offset']
@@ -55,6 +54,7 @@ def refresh_page():
   pageTimer = 0
   reloadPage_()
 
+  
 ############## refresh_map ##############
 def refresh_map():
   global timer
@@ -93,6 +93,7 @@ def refresh_map():
       start_minner()
       timer = 0
 
+      
 ############## workflow ##############
 def workflow():
   global timer
@@ -116,6 +117,7 @@ def workflow():
     timer+=1
     pageTimer+=1
 
+    
 ############## start_minner ##############
 def start_minner():
   global isLogged
@@ -144,6 +146,7 @@ def start_minner():
     traying = 0
     isLogged = True
 
+    
 ############## select_heroes ##############
 def select_heroes():
     print('Select Heroes')
@@ -209,6 +212,7 @@ def select_heroes():
         if(image != None):
             mouseClick_(image)
 
+            
 ############## connect_wallet ##############
 def connect_wallet():
   print('Connect Wallet')
@@ -253,7 +257,7 @@ def connect_wallet():
   # start minner
   start_minner()
 
-
+  
 ############## main ##############
 def main():
   
