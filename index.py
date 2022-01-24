@@ -220,7 +220,7 @@ def connect_wallet():
   
   # Searching Connect Wallet Button
   image = getImage_('connect_wallet.jpg')
-  print('Searching Connect Wallet Button')
+  print('Searching for Connect Wallet Button')
   while(image == None and traying < traying_time):
     time.sleep(1)
     image = getImage_('connect_wallet.jpg')
