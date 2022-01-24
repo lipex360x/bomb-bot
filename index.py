@@ -64,7 +64,7 @@ def refresh_map():
   
   print('Refresh Map')
 
-  # E
+  # Searching for Back Arrow Butto
   print('Searching for Back Arrow Button')
   image = getImage_('back_arrow.jpg')
   
