@@ -126,7 +126,7 @@ def workflow():
 def start_minner():
   global isLogged
 
-  print('Start Minner')
+  print('Starting Minner')
 
   traying = 0
 
@@ -146,6 +146,7 @@ def start_minner():
   
   # Start Minner
   if (image != None):
+    print('Minner Started')
     mouseClick_(image)
     traying = 0
     isLogged = True
