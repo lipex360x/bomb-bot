@@ -233,7 +233,7 @@ def connect_wallet():
   
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connect Wallet failure. Restarting page')
+    print('Connection Wallet failure. Restarting page')
     refresh_page()
     return False
   
@@ -243,7 +243,7 @@ def connect_wallet():
 
   # Search MetaMask Login button
   image = getImage_('btn_sign.jpg')
-  print('Searching MetaMask Login button')
+  print('Searching for MetaMask Login button')
   while (image == None and traying < traying_time):
     time.sleep(1)
     image = getImage_('btn_sign.jpg')
@@ -251,7 +251,7 @@ def connect_wallet():
 
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connect Wallet failure. Restarting page')
+    print('Connection Wallet failure. Restarting page')
     refresh_page()
     return False
 
