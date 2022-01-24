@@ -1,7 +1,7 @@
 ############## imports ##############
 import time
 import yaml
-import pyautogui
+import pyautogui as pt
 
 from src.utils_ import *
 
@@ -9,7 +9,7 @@ stream = open("config.yaml", 'r')
 
 
 ############## mapper config ##############
-pt = pyautogui
+
 config = yaml.safe_load(stream)
 refresh_map_time  = config['refresh_map_time']
 refresh_page_time = config['refresh_page_time']
