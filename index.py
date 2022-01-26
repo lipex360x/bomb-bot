@@ -304,7 +304,7 @@ def connect_wallet():
   
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connect Wallet failure. Restarting page')
+    print('Connection Wallet failure. Restarting page')
     refresh_page()
     return False
   
@@ -322,7 +322,7 @@ def connect_wallet():
 
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connect Wallet failure. Restarting page')
+    print('Connection Wallet failure. Restarting page')
     refresh_page()
     return False
 
