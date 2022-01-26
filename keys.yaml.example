@@ -1,8 +1,5 @@
 # TWILLOW
 account_sid: ''
-
 auth_token: ''
-
 from_number: ''
-
-iex_key: 
+to_number: ''

@@ -53,18 +53,18 @@ def get_bcoins():
   if(image != None):
     mouseClick_(image)
     
-    if os.path.isfile('total_bcoins.jpg'):
-      os.remove('total_bcoins.jpg')
+    if os.path.isfile('total_bcoins.png'):
+      os.remove('total_bcoins.png')
     
     time.sleep(5)
 
-    pt.screenshot('total_bcoins.jpg', region=(720, 520, 200, 60))
+    pt.screenshot('total_bcoins.png', region=(720, 550, 200, 60))
     
-    img = Image.open('total_bcoins.jpg')
+    img = Image.open('total_bcoins.png')
     balance = pytesseract.image_to_string(img)
     balance = balance.replace('\n', ' ').replace('\r', '').replace(',', '.')
     
-    os.remove('total_bcoins.jpg')
+    os.remove('total_bcoins.png')
 
     image = getImage_('x.jpg')
     mouseClick_(image)
@@ -72,7 +72,7 @@ def get_bcoins():
     return float(balance)
 
 
-############## cryto_price ##############
+############## bomb_balance ##############
 def bomb_balance():
   balance = get_bcoins()
   
@@ -108,7 +108,7 @@ def refresh_page():
   global pageTimer
 
   print('Refresh Page')
-  image = getImage_('server.jpg')
+  image = getImage_('server2.jpg')
   
   print('Searching for Server Image')
   while(image == None):
@@ -183,7 +183,7 @@ def workflow():
     image = getImage_('new_map.jpg')
     if(image != None):
       mouseClick_(image)
-      send_sms('+5531990715078', bomb_balance())
+      send_sms(keys['to_number'], bomb_balance())
 
     timer+=1
     pageTimer+=1
@@ -340,13 +340,13 @@ def main():
   global isLogged
 
   while True:
-    time.sleep(1)
+    time.sleep(3)
 
-    if (isLogged == False):
-      connect_wallet()
+    # if (isLogged == False):
+    #  connect_wallet()
     
-    if (isLogged == True):
-      workflow()
+    # if (isLogged == True):
+    #  workflow()
 
     # select_heroes()
 
