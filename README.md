@@ -1,4 +1,6 @@
-## Tesseract 
+<h2 align="center">BombBot</h2>
+
+## Tesseract
 
 #### Windows Install
 
@@ -7,5 +9,4 @@
 
 #### Ubuntu Install
 
-> sudo apt install tesseract-ocr
-> sudo apt install tesseract-ocrsudo
+> sudo apt install -y tesseract-ocr tesseract-ocrsudo
