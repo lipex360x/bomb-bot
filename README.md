@@ -9,4 +9,4 @@
 
 #### Ubuntu Install
 
-> sudo apt install -y tesseract-ocr tesseract-ocrsudo
+> sudo apt install -y tesseract-ocr tesseract-ocr
