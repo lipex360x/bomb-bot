@@ -44,7 +44,7 @@ toHunt = False
 ############## get bcoins ##############
 def get_bcoins():
 
-  # Discomment in Windows 
+  # Remove Comments bellow in Windows OS
   # if(platform.system() == 'Windows'):
     # pytesseract.tesseract_cmd = r'<tesseract_path_install>\tesseract.exe'
       
