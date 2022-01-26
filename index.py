@@ -340,15 +340,14 @@ def main():
   global isLogged
 
   while True:
-    time.sleep(3)
+    time.sleep(1)
 
-    # if (isLogged == False):
-    #  connect_wallet()
+    if (isLogged == False):
+      connect_wallet()
     
-    # if (isLogged == True):
-    #  workflow()
+    if (isLogged == True):
+      workflow()
 
-    # select_heroes()
 
 ############## start bot ##############
 print('Start BombBot')
