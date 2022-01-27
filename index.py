@@ -131,6 +131,7 @@ def refresh_map():
   now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   global timer
   global toHunt
+  global isLogged
 
   traying = 0
   
@@ -148,6 +149,7 @@ def refresh_map():
     # If don't see it, refresh page
   if(traying >= traying_time):
     print(now, 'Back Arrow Button not found. Restarting page')
+    isLogged = False
     refresh_page()
     return False
 
@@ -214,18 +216,21 @@ def start_minner():
   # If don't see it, refresh page
   if(traying >= traying_time):
     print(now, 'Treasure Hunt Button not found. Restarting page')
+    isLogged = False
     refresh_page()
     return False
   
   # Start Minner
   if(image != None):
     mouseClick_(image)
+    print(now, 'Heroes in Map')
     traying = 0
     isLogged = True
 
 
 ############## select_heroes ##############
 def select_heroes():
+  global isLogged
   now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   print(now, 'Select Heroes')
   
@@ -241,6 +246,7 @@ def select_heroes():
   # If don't see it, refresh page
   if(traying >= traying_time):
     print(now, 'Heroes Button not found. Restarting page')
+    isLogged = False
     refresh_page()
     return False
 
@@ -256,6 +262,7 @@ def select_heroes():
 
       if(traying >= traying_time):
         print(now, 'Heroes Button not found. Restarting page')
+        isLogged = False
         refresh_page()
         return False
 
@@ -293,6 +300,7 @@ def select_heroes():
       # If don't see it, refresh page
       if(traying >= traying_time):
         print(now, 'Close Heroes Characters failure. Restarting page')
+        isLogged = False
         refresh_page()
         return False
 
@@ -302,6 +310,7 @@ def select_heroes():
 
 ############## connect_wallet ##############
 def connect_wallet():
+  global isLogged
   now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   print(now, 'Connect Wallet')
   traying = 0
@@ -317,6 +326,7 @@ def connect_wallet():
   # If don't see it, refresh page
   if(traying >= traying_time):
     print(now, 'Connection Wallet failure. Restarting page')
+    isLogged = False
     refresh_page()
     return False
   
@@ -335,6 +345,7 @@ def connect_wallet():
   # If don't see it, refresh page
   if(traying >= traying_time):
     print(now, 'Connection Wallet failure. Restarting page')
+    isLogged = False
     refresh_page()
     return False
 
