@@ -41,6 +41,9 @@ pageTimer = 0
 global toHunt
 toHunt = False
 
+global now
+now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
+
 ############## get bcoins ##############
 def get_bcoins():
 
@@ -107,10 +110,10 @@ def refresh_page():
   global timer
   global pageTimer
 
-  print('Refresh Page')
+  print(now, 'Refresh Page')
   image = getImage_('server2.jpg')
   
-  print('Searching for Server Image')
+  print(now, 'Searching for Server Image')
   while(image == None):
     time.sleep(1)  
     image = getImage_('server.jpg')
@@ -129,10 +132,10 @@ def refresh_map():
 
   traying = 0
   
-  print('Refresh Map')
+  print(now, 'Refresh Map')
 
   # Searching for Back Arrow Button
-  print('Searching for Back Arrow Button')
+  print(now, 'Searching for Back Arrow Button')
   image = getImage_('back_arrow.jpg')
   
   while(image == None and traying < traying_time + 10):
@@ -142,7 +145,7 @@ def refresh_map():
 
     # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Back Arrow Button not found. Restarting page')
+    print(now, 'Back Arrow Button not found. Restarting page')
     refresh_page()
     return False
 
@@ -166,7 +169,7 @@ def workflow():
   global pageTimer
   global isLogged
 
-  print('Workflow Started')
+  print(now, 'Workflow Started')
 
   while 1 and isLogged == True:
     time.sleep(1)
@@ -180,10 +183,10 @@ def workflow():
     if(pageTimer > refresh_page_time):
       refresh_page()
 
-    image = getImage_('new_map.jpg')
-    if(image != None):
-      mouseClick_(image)
-      send_sms(keys['to_number'], bomb_balance())
+    # image = getImage_('new_map.jpg')
+    # if(image != None):
+    #  mouseClick_(image)
+    #  send_sms(keys['to_number'], bomb_balance())
 
     timer+=1
     pageTimer+=1
@@ -192,12 +195,12 @@ def workflow():
 def start_minner():
   global isLogged
 
-  print('Start Minner')
+  print(now, 'Start Minner')
 
   traying = 0
 
   # Searching for Treasure Hunt Button
-  print('Searching for Treasure Hunt Button')
+  print(now, 'Searching for Treasure Hunt Button')
   image = getImage_('treasure_hunt_icon.jpg')
   while(image == None and traying < traying_time + 20):
     time.sleep(1)
@@ -206,7 +209,7 @@ def start_minner():
 
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Treasure Hunt Button not found. Restarting page')
+    print(now, 'Treasure Hunt Button not found. Restarting page')
     refresh_page()
     return False
   
@@ -219,11 +222,11 @@ def start_minner():
 
 ############## select_heroes ##############
 def select_heroes():
-  print('Select Heroes')
+  print(now, 'Select Heroes')
   
   traying = 0
 
-  print('Searching for Heroes Button')
+  print(now, 'Searching for Heroes Button')
   image = getImage_('hero_icon.jpg')
   while(image == None and traying < traying_time + 10):
     time.sleep(1)
@@ -232,20 +235,22 @@ def select_heroes():
 
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Heroes Button not found. Restarting page')
+    print(now, 'Heroes Button not found. Restarting page')
     refresh_page()
     return False
 
   if(image != None):
       mouseClick_(image)
       
-      print('Starting Heroes')
+      traying = 0
+      print(now, 'Starting Heroes')
       image = None
       while(image == None and traying < traying_time + 10):
         image = getImage_('scroll_hero.jpg')
+        traying+=1
 
       if(traying >= traying_time):
-        print('Heroes Button not found. Restarting page')
+        print(now, 'Heroes Button not found. Restarting page')
         refresh_page()
         return False
 
@@ -255,7 +260,7 @@ def select_heroes():
 
         btn_clicks = []
 
-        for i in range(4):            
+        for i in range(5):            
           greenBars = pt.locateAllOnScreen('images/green_bar.jpg', confidence = 0.95)
           
           for bar in greenBars:
@@ -273,7 +278,7 @@ def select_heroes():
       btn_clicks = []
 
       # Click X button
-      print('Close Heroes Characters')
+      print(now, 'Close Heroes Characters')
       image = getImage_('x.jpg')
       while(image == None and traying < traying_time):
         time.sleep(1)
@@ -282,21 +287,22 @@ def select_heroes():
       
       # If don't see it, refresh page
       if(traying >= traying_time):
-        print('Close Heroes Characters failure. Restarting page')
+        print(now, 'Close Heroes Characters failure. Restarting page')
         refresh_page()
         return False
 
       if(image != None):
           mouseClick_(image)
+          traying = 0
 
 ############## connect_wallet ##############
 def connect_wallet():
-  print('Connect Wallet')
+  print(now, 'Connect Wallet')
   traying = 0
   
   # Searching for Connect Wallet Button
   image = getImage_('connect_wallet.jpg')
-  print('Searching for Connect Wallet Button')
+  print(now, 'Searching for Connect Wallet Button')
   while(image == None and traying < traying_time):
     time.sleep(1)
     image = getImage_('connect_wallet.jpg')
@@ -304,7 +310,7 @@ def connect_wallet():
   
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connection Wallet failure. Restarting page')
+    print(now, 'Connection Wallet failure. Restarting page')
     refresh_page()
     return False
   
@@ -314,7 +320,7 @@ def connect_wallet():
 
   # Search for MetaMask Login button
   image = getImage_('btn_sign.jpg')
-  print('Searching for MetaMask Login button')
+  print(now, 'Searching for MetaMask Login button')
   while (image == None and traying < traying_time):
     time.sleep(1)
     image = getImage_('btn_sign.jpg')
@@ -322,7 +328,7 @@ def connect_wallet():
 
   # If don't see it, refresh page
   if(traying >= traying_time):
-    print('Connection Wallet failure. Restarting page')
+    print(now, 'Connection Wallet failure. Restarting page')
     refresh_page()
     return False
 
@@ -350,5 +356,5 @@ def main():
 
 
 ############## start bot ##############
-print('Start BombBot')
+print(now, 'Start BombBot')
 main()
