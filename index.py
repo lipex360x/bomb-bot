@@ -41,11 +41,9 @@ pageTimer = 0
 global toHunt
 toHunt = False
 
-global now
-now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
-
 ############## get bcoins ##############
 def get_bcoins():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
 
   # Remove Comments bellow in Windows OS
   # if(platform.system() == 'Windows'):
@@ -77,6 +75,7 @@ def get_bcoins():
 
 ############## bomb_balance ##############
 def bomb_balance():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   balance = get_bcoins()
   
   cg = CoinGeckoAPI()
@@ -93,6 +92,7 @@ def bomb_balance():
 
 ############## send_sms ##############
 def send_sms(destination, message):
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   account_sid = keys['account_sid']
   auth_token = keys['auth_token']
 
@@ -106,6 +106,7 @@ def send_sms(destination, message):
 
 ############## refresh_page ##############
 def refresh_page():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   global isLogged
   global timer
   global pageTimer
@@ -127,6 +128,7 @@ def refresh_page():
 
 ############## refresh_map ##############
 def refresh_map():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   global timer
   global toHunt
 
@@ -165,6 +167,7 @@ def refresh_map():
 
 ############## workflow ##############
 def workflow():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   global timer
   global pageTimer
   global isLogged
@@ -193,6 +196,7 @@ def workflow():
 
 ############## start_minner ##############
 def start_minner():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   global isLogged
 
   print(now, 'Start Minner')
@@ -222,6 +226,7 @@ def start_minner():
 
 ############## select_heroes ##############
 def select_heroes():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   print(now, 'Select Heroes')
   
   traying = 0
@@ -297,6 +302,7 @@ def select_heroes():
 
 ############## connect_wallet ##############
 def connect_wallet():
+  now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
   print(now, 'Connect Wallet')
   traying = 0
   
@@ -342,7 +348,6 @@ def connect_wallet():
 
 ############## main ##############
 def main():
-  
   global isLogged
 
   while True:
@@ -356,5 +361,6 @@ def main():
 
 
 ############## start bot ##############
+now = dateFormatted_('%d/%m/%Y - %H:%M:%S')
 print(now, 'Start BombBot')
 main()
